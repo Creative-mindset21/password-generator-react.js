@@ -5,6 +5,7 @@ const Password = () => {
   const [numbers, setNumbers] = useState(false);
   const [characters, setCharacter] = useState(false);
   const [length, setLength] = useState(8);
+  const [isCopy, setIsCopy] = useState(false);
 
   // ! GENERATE RANDOM PASSWORDS
   const generateRandomPassword = useCallback(() => {
@@ -23,6 +24,18 @@ const Password = () => {
 
     setPassword(pass);
   }, [length, numbers, characters]);
+
+  // ! COPY TO CLIPBOARD
+  const copyToClipBoard = () => {
+    window.navigator.clipboard.writeText(password);
+    setIsCopy(true);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsCopy(false);
+    }, 3000);
+  }, [isCopy]);
 
   // ! RUN THE FUNCTION WHEN THE PAGE IS FIRST LOADED
   useEffect(() => {
@@ -92,18 +105,24 @@ const Password = () => {
         <div className="flex gap-4">
           <button
             onClick={handleSubmit}
-            className="py-2 px-6 bg-[#00b4d8] text-lg text-white rounded-sm font-semibold"
+            className="py-2 px-6 bg-[#00b4d8] text-lg text-white rounded-sm font-semibold border border-transparent duration-300  hover:bg-transparent
+             hover:border-[#00b4d8]"
           >
             Generate Passwords
           </button>
 
           <button
-            onClick={handleSubmit}
-            className="py-2 px-6 border border-[#00b4d8] text-lg text-[#00b4d8] rounded-sm font-semibold"
+            type="button"
+            onClick={copyToClipBoard}
+            className="py-2 px-6 border border-[#00b4d8] text-lg text-[#00b4d8] rounded-sm font-semibold bg-transparent hover:bg-[#00b4d8] hover:text-white duration-300"
           >
             Copy
           </button>
         </div>
+
+        <p className="duration-300 transition-all text-white text-[#00b4d8] text-xl">
+          {isCopy && "Password Copied"}
+        </p>
       </form>
     </section>
   );
