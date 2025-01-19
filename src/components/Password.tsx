@@ -31,6 +31,7 @@ const Password = () => {
     setIsCopy(true);
   };
 
+  // ! MADE THE COPY MESSAGE DISAPPER AFTER 3 SECONDS
   useEffect(() => {
     setTimeout(() => {
       setIsCopy(false);
