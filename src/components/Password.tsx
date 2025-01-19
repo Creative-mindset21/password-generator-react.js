@@ -57,7 +57,7 @@ const Password = () => {
           type="text"
           name="password"
           value={password}
-          className="bg-[#273549] py-2 px-4 rounded-md text-white cursor-pointer w-[80%] md:w-[20%]"
+          className="bg-[#273549] py-2 px-4 rounded-md text-white cursor-pointer w-[80%] lg:w-[40%]"
           readOnly
         />
 
