@@ -106,7 +106,7 @@ const Password = () => {
         <div className="flex gap-4">
           <button
             onClick={handleSubmit}
-            className="py-2 px-6 bg-[#00b4d8] text-lg text-white rounded-sm font-semibold border border-transparent duration-300  hover:bg-transparent
+            className="p-3 bg-[#00b4d8] text-white rounded-lg font-semibold border border-transparent duration-300 hover:bg-transparent
              hover:border-[#00b4d8]"
           >
             Generate Passwords
@@ -115,13 +115,13 @@ const Password = () => {
           <button
             type="button"
             onClick={copyToClipBoard}
-            className="py-2 px-6 border border-[#00b4d8] text-lg text-[#00b4d8] rounded-sm font-semibold bg-transparent hover:bg-[#00b4d8] hover:text-white duration-300"
+            className="p-3 border border-[#00b4d8] text-[#00b4d8] rounded-lg font-semibold bg-transparent hover:bg-[#00b4d8] hover:text-white duration-300"
           >
             Copy
           </button>
         </div>
 
-        <p className="duration-300 transition-all text-white text-[#00b4d8] text-xl">
+        <p className="duration-300 transition-all text-[#00b4d8] text-xl">
           {isCopy && "Password Copied"}
         </p>
       </form>
